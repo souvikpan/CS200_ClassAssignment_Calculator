@@ -65,10 +65,17 @@ def nth_root ():
     
     # Logic for function assigned to you as in pdf
     
+<<<<<<< HEAD
 
 
 @app.route("/bitAND", methods=["POST"])
 def bitAND(): 
+=======
+    return 1
+
+@app.route("/subtract", methods=["POST"])
+def subtract(a,b):
+>>>>>>> f565aee... Update __init__.py
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
