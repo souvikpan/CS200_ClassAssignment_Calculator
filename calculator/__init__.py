@@ -31,8 +31,8 @@ def XYZ():
     
     return 1
 
-@app.route("/subtract", methods=["POST"])
-def subtract(a,b):
+@app.route("/findmin", methods=["POST"])
+def findmin():
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
@@ -41,12 +41,21 @@ def subtract(a,b):
     
 @app.route("/lcm", methods=["POST"])
 def subtract(a,b):
+    jsonStr = request.get_json())
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2']
+    return lcm(a,b)
+        
+@app.route("/multiply", methods=["POST"])
+def multiply():
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-    return lcm(a,b)
-    
+    mul = a*b
+    response = "Product of 2 numbers = " + str(mul)
+    return response
 
 if __name__== "__main__":
     app.run()
