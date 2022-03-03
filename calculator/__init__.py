@@ -31,7 +31,7 @@ def XYZ():
     return 1
 
 @app.route("/subtract", methods=["POST"])
-def subtract(a,b):
+def subtract():
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
