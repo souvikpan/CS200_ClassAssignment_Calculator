@@ -37,7 +37,20 @@ def findmin():
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-    return a-b
+    minimum = min(a,b)
+    response = "Minimum of 2 numbers = " + str(minimum)
+    return response
+
+@app.route("/Subtract", methods=["POST"])
+def Subtract():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    subtract = a - b
+    response = "Subtraction of 2 numbers = " + str(subtract)
+    return response    
+
     
 @app.route("/lcm", methods=["POST"])
 def subtract(a,b):
