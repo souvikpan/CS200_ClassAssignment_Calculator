@@ -1,5 +1,6 @@
 import json
 from flask import Flask, render_template, request, jsonify   
+from math import lcm
 
 app = Flask(__name__)
 
@@ -36,11 +37,16 @@ def findmin():
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-    minimum = min(a,b)
-    response = "Minimum of 2 numbers = " + str(minimum)
-    return response
+    return a-b
     
-    
+@app.route("/lcm", methods=["POST"])
+def subtract(a,b):
+    jsonStr = request.get_json())
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2']
+    return lcm(a,b)
+        
 @app.route("/multiply", methods=["POST"])
 def multiply():
     jsonStr = request.get_json()
