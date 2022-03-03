@@ -17,6 +17,16 @@ def ADD():
     sum=a+b
     response = "sum of 2 numbers = " + str(sum)
     return response
+
+def FACTORIAL():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    fact = factorial(a)
+    response = "factorail of " + str(a) + " is " + str(fact) + "."
+    return response
+    
     
 @app.route("/xyz", methods=["POST"])
 def XYZ(): 
@@ -30,16 +40,12 @@ def XYZ():
     
     return 1
 
-@app.route("/subtract", methods=["POST"])
-def subtract():
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-    a=int(jsonObj['N1'])
-    b=int(jsonObj['N2'])
-    return a-b
-    
-    
-    
-
 if __name__== "__main__":
     app.run()
+    
+def factorial(n):
+    ans = 1
+    for i in range(n):
+        ans = ans * (i + 1)
+        
+    return(ans)
