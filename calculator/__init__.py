@@ -29,6 +29,8 @@ def XYZ():
     # Logic for function assigned to you as in pdf
     
     return 1
+
+@app.route("/subtract", methods=["POST"])
 def subtract(a,b):
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
