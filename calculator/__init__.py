@@ -1,5 +1,6 @@
 import json
 from flask import Flask, render_template, request, jsonify   
+from math import lcm
 
 app = Flask(__name__)
 
@@ -49,8 +50,25 @@ def Subtract():
     subtract = a - b
     response = "Subtraction of 2 numbers = " + str(subtract)
     return response    
+
     
-    
+@app.route("/lcm", methods=["POST"])
+def subtract(a,b):
+    jsonStr = request.get_json())
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2']
+    return lcm(a,b)
+        
+@app.route("/multiply", methods=["POST"])
+def multiply():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    mul = a*b
+    response = "Product of 2 numbers = " + str(mul)
+    return response
 
 if __name__== "__main__":
     app.run()
