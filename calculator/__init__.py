@@ -1,5 +1,6 @@
 import json
 from flask import Flask, render_template, request, jsonify   
+from math import lcm
 
 app = Flask(__name__)
 
@@ -32,6 +33,22 @@ def bitwiseXor():
     response = "Bitwise Xor of 2 numbers = " + str(xor)
     return response
 
+@app.route("/subtract", methods=["POST"])
+def subtract(a,b):
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    return a-b
+    
+@app.route("/lcm", methods=["POST"])
+def subtract(a,b):
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    return lcm(a,b)
+    
 
 if __name__== "__main__":
     app.run()
