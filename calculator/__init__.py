@@ -17,7 +17,13 @@ def ADD():
     sum=a+b
     response = "sum of 2 numbers = " + str(sum)
     return response
-    
+   
+@app.route("/mult", methods=["POST"])
+def MULT():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+
+
 @app.route("/expo", methods=["POST"])
 def expo(): 
 	jsonStr = request.get_json()
@@ -49,6 +55,17 @@ def bitAND():
 
 @app.route("/LOGICAL_AND", methods=["POST"])
 def LOGICAL_AND(): 
+
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    mul=a*b
+    response = "Multiplication of 2 numbers = " + str(mul)
+    return response
+
+
+@app.route("/xyz", methods=["POST"])
+def XYZ(): 
+
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
