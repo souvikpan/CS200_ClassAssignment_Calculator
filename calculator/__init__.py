@@ -30,14 +30,14 @@ def XYZ():
     
     return 1
 
-@app.route("/subtract", methods=["POST"])
-def subtract():
+@app.route("/findmin", methods=["POST"])
+def findmin():
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-    diff = a-b
-    response = "Difference of 2 numbers = " + str(diff)
+    minimum = min(a,b)
+    response = "Minimum of 2 numbers = " + str(minimum)
     return response
     
     
