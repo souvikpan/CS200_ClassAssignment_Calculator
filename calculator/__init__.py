@@ -18,8 +18,8 @@ def ADD():
     response = "sum of 2 numbers = " + str(sum)
     return response
     
-@app.route("/xyz", methods=["POST"])
-def XYZ(): 
+@app.route("/bitwiseOr", methods=["POST"])
+def bitwiseOr(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
@@ -27,8 +27,13 @@ def XYZ():
     b=int(jsonObj['N2'])
     
     # Logic for function assigned to you as in pdf
+    xor=a|b
+    response = "Bitwise or of 2 numbers = " + str(xor)
+    return response
+
     
-    return 1
+    
+    
 
 if __name__== "__main__":
     app.run()
