@@ -166,7 +166,7 @@ def HCF():
 
     a = int(jsonObj['N1'])
     b = int(jsonObj['N2'])
-    sum = gcd(a, b)
+    sum = math.gcd(a, b)
     response = "HCF of 2 numbers = " + str(sum)
     return response
 
