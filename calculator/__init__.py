@@ -124,6 +124,17 @@ def lor():
     response = "Logical or of 2 numbers is " + str(num)
     return response
 
+@app.route("/xyz", methods=["POST"])
+def XYZ(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    
+    # Logic for function assigned to you as in pdf
+    ans = a/(10**b)
+    response = "left decimal shift: " + str(ans)
+    return response
 
 if __name__== "__main__":
     app.run()
