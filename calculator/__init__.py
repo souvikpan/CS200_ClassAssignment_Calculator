@@ -42,7 +42,7 @@ def findmin():
     return response
 
 @app.route("/findmax", methods=["POST"])
-def findmin():
+def findmax():
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
