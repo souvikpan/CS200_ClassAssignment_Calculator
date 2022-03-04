@@ -1,5 +1,6 @@
 import json
-from flask import Flask, render_template, request, jsonify   
+from flask import Flask, render_template, request, jsonify 
+import math  
 
 app = Flask(__name__)
 
@@ -77,7 +78,18 @@ def bitAND():
     response = "And operator of 2 numbers is " + str(num)
     return response
 
+@app.route("/logarithm", methods=["POST"])
+def logarithm(): 
 #code added by group tech warriors
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+
+    log=math.log(a,b)
+    response="Log of Number-1 is calculated with  Number-2 as the base "+str(log)
+    return response
 @app.route("/multiply", methods=["POST"])
 def multiply(): 
     jsonStr = request.get_json()
