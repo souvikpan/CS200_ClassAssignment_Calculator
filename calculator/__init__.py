@@ -30,7 +30,7 @@ def bitwiseXor():
 	jsonStr = request.get_json()
 	jsonObj = json.loads(jsonStr)
 	a=int(jsonObj['N1'])
-	b=int(jsonObj['N2']
+	b=int(jsonObj['N2'])
 	xor=a^b
 	response = "Bitwise Xor of 2 numbers = " + str(xor)
 	return response
@@ -57,6 +57,19 @@ def LOGICAL_AND():
     LOGIC_AND = a and b
     response = "logical and of a and b is = " + str(LOGIC_AND)
     return response
+       
+@app.route("/shiftdeciright", methods=["POST"])
+def shiftdeciright(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=float(jsonObj['N1'])
+    b=float(jsonObj['N2'])
+    shift =a*10
+    shift2 =b*10
+    response ="Shfifting decimal right " + str(shift) +" and "+ str(shift2)
+    return response
+    
 
 if __name__== "__main__":
     app.run()
