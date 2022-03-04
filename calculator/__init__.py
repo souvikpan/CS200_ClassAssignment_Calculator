@@ -25,23 +25,36 @@ def expo():
 	jsonObj = json.loads(jsonStr)
 	a=int(jsonObj['N1'])
 	b=int(jsonObj['N2'])
-	return str(a) + " raised to the power " + str(b)+ "is equal to "+ str(a**    b)  
+	return str(a) + " raised to the power " + str(b)+ "is equal to "+ str(a**b)  
+
 @app.route("/bitwiseXor", methods=["POST"])
 def bitwiseXor():     
 	jsonStr = request.get_json()
 	jsonObj = json.loads(jsonStr)
 	a=int(jsonObj['N1'])
 	b=int(jsonObj['N2'])
-	xr=a^b
-	response = "Bitwise Xor of 2 numbers = " + str(xr)
+	xor=a^b
+	response = "Bitwise Xor of 2 numbers = " + str(xor)
 	return response
+
+@app.route("/isequal", methods=["POST"])
+def isequal():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    if (a==b):
+        return "The numbers are equal"
+    else:
+        return "The numbers are NOT equal"
+
 
 
 @app.route("/bitAND", methods=["POST"])
 def bitAND(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
-
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
     num=a&b
@@ -50,13 +63,25 @@ def bitAND():
 
 @app.route("/logarithm", methods=["POST"])
 def logarithm(): 
+#code added by group tech warriors
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
+
     log=math.log(a,b)
     response="Log of Number-1 is calculated with  Number-2 as the base "+str(log)
+    return response
+@app.route("/multiply", methods=["POST"])
+def multiply(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    mul=a*b
+    response = f"multiplication of {a} and {b} = {mul}"
     return response
 
 @app.route("/LOGICAL_AND", methods=["POST"])
@@ -69,6 +94,7 @@ def LOGICAL_AND():
     LOGIC_AND = a and b
     response = "logical and of a and b is = " + str(LOGIC_AND)
 
+    return response
 
 if __name__== "__main__":
     app.run()
