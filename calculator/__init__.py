@@ -39,6 +39,16 @@ def bitAND():
     b=int(jsonObj['N2'])
     num=a&b
     response = "And operator of 2 numbers is " + str(num)
+
+@app.route("/LOGICAL_AND", methods=["POST"])
+def LOGICAL_AND(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    LOGIC_AND = a and b
+    response = "logical and of a and b is = " + str(LOGIC_AND)
     return response
 
 if __name__== "__main__":
