@@ -112,6 +112,19 @@ def LOGICAL_AND():
     response = "logical and of a and b is = " + str(LOGIC_AND)
 
     return response
+       
+@app.route("/shiftdeciright", methods=["POST"])
+def shiftdeciright(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=float(jsonObj['N1'])
+    b=float(jsonObj['N2'])
+    shift =a*10
+    shift2 =b*10
+    response ="Shfifting decimal right " + str(shift) +" and "+ str(shift2)
+    return response
+    
 
 @app.route("/lor", methods=["POST"])
 def lor(): 
@@ -138,6 +151,8 @@ def XYZ():
 
 @app.route("/antilog", methods=["POST"])
 def ANTILOG(): 
+@app.route("/is_diff", methods=["POST"])
+def is_diff(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
@@ -145,6 +160,9 @@ def ANTILOG():
     b=int(jsonObj['N2'])
     antilog = b**a
     response = "antilog of logarthmic value "+str(a)+" with base "+str(b)+" is " + str(antilog)
+
+    diff = (a!=b)
+    response = "Are a and b different:"+diff
     return response
 
 if __name__== "__main__":
