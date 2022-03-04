@@ -136,6 +136,18 @@ def lor():
     num=a or b
     response = "Logical or of 2 numbers is " + str(num)
     return response
+    
+ @app.route("/rightshift", methods=["POST"])
+def RIGHTSHIFT(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    ans=a>>b
+   
+    response = "Right Shift of two numbers: "+str(a)+">>"+str(b)+" is: "+str(ans)
+    return response
 
 @app.route("/xyz", methods=["POST"])
 def XYZ(): 
@@ -151,8 +163,6 @@ def XYZ():
 
 @app.route("/antilog", methods=["POST"])
 def ANTILOG(): 
-@app.route("/is_diff", methods=["POST"])
-def is_diff(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
@@ -160,9 +170,17 @@ def is_diff():
     b=int(jsonObj['N2'])
     antilog = b**a
     response = "antilog of logarthmic value "+str(a)+" with base "+str(b)+" is " + str(antilog)
+    return response
 
-    diff = (a!=b)
-    response = "Are a and b different:"+diff
+@app.route("/LOGICAL_OR", methods=["POST"])
+def LOGICAL_OR():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    LOGIC_OR = a or b
+    response = "logical or of a and b is = " + str(LOGIC_OR)
     return response
 
 if __name__== "__main__":
