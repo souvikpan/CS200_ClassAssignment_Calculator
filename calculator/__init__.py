@@ -137,7 +137,7 @@ def lor():
     response = "Logical or of 2 numbers is " + str(num)
     return response
     
- @app.route("/rightshift", methods=["POST"])
+@app.route("/rightshift", methods=["POST"])
 def RIGHTSHIFT(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
