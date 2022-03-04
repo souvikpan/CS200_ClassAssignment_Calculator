@@ -382,7 +382,7 @@ def bitOR():
     response="The Bitwise OR of the two numbers is "+str(num)
     return response
     
-if __name__== "__main__":
+
 
 
 @app.route("/hcf", methods=["POST"])
