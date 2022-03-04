@@ -19,6 +19,7 @@ def ADD():
     b = int(jsonObj['N2'])
     sum = a+b
     response = "sum of 2 numbers = " + str(sum)
+
     return response
 
 
@@ -35,8 +36,22 @@ def MIN():
     	response = "MIN of the two is= " + str(b)
     else:
      	response = "both are equal and the number is:" + str(a)
-    return response
+    return response    
 
+@app.route("/MIN", methods=["POST"])
+def MIN(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    if a<b :
+    	response = "MIN of the two is= " + str(a)
+    elif b<a :
+    	response = "MIN of the two is= " + str(b)
+    else :
+        response = "both are equal and the number is:" + str(a)
+    return response
 
 @app.route("/exponentiation", methods=["POST"])
 def exp():
@@ -190,10 +205,6 @@ def shiftdeciright():
     return response
 
 
-@app.route("/MOD", methods=["POST"])
-def MOD():
-
-
 @app.route("/lor", methods=["POST"])
 def lor():
     jsonStr = request.get_json()
@@ -299,8 +310,6 @@ def lor():
     response = "Logical or of 2 numbers is " + str(num)
     return response
 
- @app.route("/rightshift", methods=["POST"])
-=======
     
 @app.route("/rightshift", methods=["POST"])
 
@@ -319,11 +328,7 @@ def XYZ():
     # Logic for function assigned to you as in pdf
     ans = a/(10**b)
     response = "left decimal shift: " + str(ans)
-    return response
-
-
-@app.route("/is_diff", methods=["POST"])
-def is_diff(): 
+    return response 
 
 @app.route("/antilog", methods=["POST"])
 def ANTILOG(): 
