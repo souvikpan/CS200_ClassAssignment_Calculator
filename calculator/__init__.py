@@ -312,6 +312,7 @@ def LOGICAL_OR():
     response = "logical or of a and b is = " + str(LOGIC_OR)
     return response
 
+<<<<<<< HEAD
 
 @app.route("/mod", methods=["POST"])
 def mod(): 
@@ -345,5 +346,19 @@ def bitOR():
     response="The Bitwise OR of the two numbers is "+str(num)
     return response
     
+=======
+@app.route("/lor", methods=["POST"])
+def lor(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+
+    a=jsonObj['N1']
+    b=jsonObj['N2']
+    num=a or b
+    response = "Logical or of 2 numbers is " + str(num)
+    return response
+
+
+>>>>>>> fd1e227... Added Logical Or
 if __name__== "__main__":
     app.run()
