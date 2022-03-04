@@ -125,5 +125,16 @@ def lor():
     return response
 
 
+@app.route("/is_diff", methods=["POST"])
+def is_diff(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    diff = (a!=b)
+    response = "Are a and b different:"+diff
+    return response
+
 if __name__== "__main__":
     app.run()
