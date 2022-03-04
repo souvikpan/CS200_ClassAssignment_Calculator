@@ -266,6 +266,7 @@ def shiftdeciright():
     return response
     
 
+<<<<<<< HEAD
 @app.route("/lor", methods=["POST"])
 def lor(): 
     jsonStr = request.get_json()
@@ -301,11 +302,16 @@ def ANTILOG():
 
 @app.route("/LOGICAL_OR", methods=["POST"])
 def LOGICAL_OR():
+=======
+@app.route("/is_diff", methods=["POST"])
+def is_diff(): 
+>>>>>>> 7fd9184 (commit on my branch)
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
+<<<<<<< HEAD
     LOGIC_OR = a or b
     response = "logical or of a and b is = " + str(LOGIC_OR)
     return response
@@ -343,5 +349,11 @@ def bitOR():
     response="The Bitwise OR of the two numbers is "+str(num)
     return response
     
+=======
+    diff = (a!=b)
+    response = "Are a and b different:"+diff
+    return response
+
+>>>>>>> 7fd9184 (commit on my branch)
 if __name__== "__main__":
     app.run()
