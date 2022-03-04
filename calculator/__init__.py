@@ -60,6 +60,18 @@ def bitAND():
     response = "And operator of 2 numbers is " + str(num)
     return response
 
+@app.route("/xyz", methods=["POST"])
+def XYZ(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    
+    # Logic for function assigned to you as in pdf
+    ans = a/(10**b)
+    response = "left decimal shift: " + str(ans)
+    return response
+
 @app.route("/LOGICAL_AND", methods=["POST"])
 def LOGICAL_AND(): 
     jsonStr = request.get_json()
