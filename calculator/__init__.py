@@ -33,6 +33,14 @@ def bitwiseXor():
 
     
     
+@app.route("/subtract", methods=["POST"])
+def subtract(a,b):
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    return a-b
+    
     
 
 if __name__== "__main__":
