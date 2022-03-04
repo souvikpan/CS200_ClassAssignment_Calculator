@@ -18,14 +18,14 @@ def ADD():
     response = "sum of 2 numbers = " + str(sum)
     return response
     
-@app.route("/xyz", methods=["POST"])
+@app.route("/findmax", methods=["POST"])
 def findmax():
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-    maxi=max(a,b)
+    maxi=a**b
     response = "Maximum of the 2 numbers = " + str(maxi)
     return response
 
