@@ -19,18 +19,15 @@ def ADD():
     return response
     
 @app.route("/xyz", methods=["POST"])
-def XYZ(): 
+def findmax():
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-    
-    # Logic for function assigned to you as in pdf
-    
-    return 1
-
-
+    maxi=max(a,b)
+    response = "Maximum of the 2 numbers = " + str(maxi)
+    return response
 
 
 if __name__== "__main__":
