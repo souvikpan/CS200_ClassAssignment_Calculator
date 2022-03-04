@@ -183,5 +183,17 @@ def LOGICAL_OR():
     response = "logical or of a and b is = " + str(LOGIC_OR)
     return response
 
+
+@app.route("/mod", methods=["POST"])
+def mod(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    mod=a%b
+    response = "mod of 2 numbers = " + str(mod)
+    return response
+    
 if __name__== "__main__":
     app.run()
