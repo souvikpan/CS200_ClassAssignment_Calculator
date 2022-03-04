@@ -1,13 +1,12 @@
 import json
-from flask import Flask, render_template, request, jsonify 
-import math  
+
+from flask import Flask, render_template, request, jsonify   
 
 app = Flask(__name__)
-
+import math 
 @app.route("/")
 def home():
     return render_template("InputOutput.html")        
-
 @app.route("/add", methods=["POST"])
 def ADD(): 
     jsonStr = request.get_json()
@@ -181,6 +180,17 @@ def LOGICAL_OR():
     b=int(jsonObj['N2'])
     LOGIC_OR = a or b
     response = "logical or of a and b is = " + str(LOGIC_OR)
+    return response
+
+@app.route("/exponentiation", methods=["POST"])
+def exp(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    x=int(jsonObj['N1'])
+    y=int(jsonObj['N2'])
+    value=pow(x,y)
+    response = str(x) +" power " + str(y) + " is " + str(value)
     return response
 
 
