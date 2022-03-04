@@ -25,8 +25,11 @@ def XYZ():
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-    
+
     # Logic for function assigned to your group
+
+    # Logic for function assigned to you as in pdf
+
     
     return 1
 
