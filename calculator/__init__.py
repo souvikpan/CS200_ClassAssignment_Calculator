@@ -29,10 +29,7 @@ def MOD():
     response = "modulus of 2 numbers = " + str(MOD)
     return response
 
-    
-<<<<<<< HEAD
-    # Logic for function assigned to you as in pdf
-=======
+
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
 
