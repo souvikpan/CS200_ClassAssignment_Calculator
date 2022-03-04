@@ -55,5 +55,16 @@ def LOGICAL_AND():
     response = "logical and of a and b is = " + str(LOGIC_AND)
     return response
 
+@app.route("/LOGICAL_OR", methods=["POST"])
+def LOGICAL_OR():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    LOGIC_OR = a or b
+    response = "logical or of a and b is = " + str(LOGIC_OR)
+    return response
+
 if __name__== "__main__":
     app.run()
