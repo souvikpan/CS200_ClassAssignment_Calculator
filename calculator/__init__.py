@@ -248,6 +248,16 @@ def DIVISION():
     div=a/b
     response = "division of 2 numbers = " + str(div)
     return response
-    
+
+@app.route("/findmax", methods=["POST"])
+def findmax():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    maxi=max(a,b)
+    response = "The maximum of the two numbers is " + str(maxi)
+    return response
+
 if __name__== "__main__":
     app.run()
