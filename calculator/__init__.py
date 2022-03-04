@@ -124,7 +124,7 @@ def lor():
     response = "Logical or of 2 numbers is " + str(num)
     return response
     
- @app.route("/rightshift", methods=["POST"])
+@app.route("/rightshift", methods=["POST"])
 def RIGHTSHIFT(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
@@ -148,5 +148,40 @@ def XYZ():
     response = "left decimal shift: " + str(ans)
     return response
 
+
+@app.route("/antilog", methods=["POST"])
+def ANTILOG(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    antilog = b**a
+    response = "antilog of logarthmic value "+str(a)+" with base "+str(b)+" is " + str(antilog)
+    return response
+
+@app.route("/LOGICAL_OR", methods=["POST"])
+def LOGICAL_OR():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    LOGIC_OR = a or b
+    response = "logical or of a and b is = " + str(LOGIC_OR)
+    return response
+
+
+@app.route("/mod", methods=["POST"])
+def mod(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    mod=a%b
+    response = "mod of 2 numbers = " + str(mod)
+    return response
+    
 if __name__== "__main__":
     app.run()
