@@ -194,6 +194,17 @@ def mod():
     mod=a%b
     response = "mod of 2 numbers = " + str(mod)
     return response
+
+@app.route("/division", methods=["POST"])
+def DIVISION(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    div=a/b
+    response = "division of 2 numbers = " + str(div)
+    return response
     
 if __name__== "__main__":
     app.run()
