@@ -136,5 +136,16 @@ def XYZ():
     response = "left decimal shift: " + str(ans)
     return response
 
+@app.route("/antilog", methods=["POST"])
+def ANTILOG(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    antilog = b**a
+    response = "antilog of logarthmic value "+str(a)+" with base "+str(b)+" is " + str(antilog)
+    return response
+
 if __name__== "__main__":
     app.run()
