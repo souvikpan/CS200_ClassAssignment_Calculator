@@ -18,8 +18,8 @@ def ADD():
     response = "sum of 2 numbers = " + str(sum)
     return response
     
-@app.route("/xyz", methods=["POST"])
-def XYZ(): 
+@app.route("/expo", methods=["POST"])
+def expo(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
@@ -28,7 +28,7 @@ def XYZ():
     
     # Logic for function assigned to you as in pdf
     
-    return 1
+    return str(a) + " raised to the power " + str(b)+ "is equal to "+ str(a**b)
 
 
 
