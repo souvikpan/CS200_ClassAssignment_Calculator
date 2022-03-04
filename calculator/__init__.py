@@ -185,6 +185,7 @@ def lor():
     num=a or b
     response = "Logical or of 2 numbers is " + str(num)
     return response
+<<<<<<< HEAD
     
 @app.route("/rightshift", methods=["POST"])
 def RIGHTSHIFT(): 
@@ -255,5 +256,9 @@ def DIVISION():
     response = "division of 2 numbers = " + str(div)
     return response
     
+=======
+
+
+>>>>>>> fd1e227... Added Logical Or
 if __name__== "__main__":
     app.run()
