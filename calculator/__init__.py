@@ -24,7 +24,8 @@ def expo():
 	jsonObj = json.loads(jsonStr)
 	a=int(jsonObj['N1'])
 	b=int(jsonObj['N2'])
-	return str(a) + " raised to the power " + str(b)+ "is equal to "+ str(a**    b)  
+	return str(a) + " raised to the power " + str(b)+ "is equal to "+ str(a**b)  
+
 @app.route("/bitwiseXor", methods=["POST"])
 def bitwiseXor():     
 	jsonStr = request.get_json()
@@ -35,12 +36,24 @@ def bitwiseXor():
 	response = "Bitwise Xor of 2 numbers = " + str(xor)
 	return response
 
+@app.route("/isequal", methods=["POST"])
+def isequal():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    if (a==b):
+        return "The numbers are equal"
+    else:
+        return "The numbers are NOT equal"
+
+
 
 @app.route("/bitAND", methods=["POST"])
 def bitAND(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
-
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
     num=a&b
