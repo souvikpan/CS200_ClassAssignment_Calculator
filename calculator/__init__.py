@@ -18,8 +18,9 @@ def ADD():
     response = "sum of 2 numbers = " + str(sum)
     return response
     
-@app.route("/xyz", methods=["POST"])
-def XYZ(): 
+
+@app.route("/bitwiseXor", methods=["POST"])
+def bitwiseXor(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
@@ -27,8 +28,9 @@ def XYZ():
     b=int(jsonObj['N2'])
     
     # Logic for function assigned to you as in pdf
-    
-    return 1
+    xor=a^b
+    response = "Bitwise Xor of 2 numbers = " + str(xor)
+    return response
 
 @app.route("/isequal", methods=["POST"])
 def isequal():
@@ -37,12 +39,33 @@ def isequal():
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-
     if (a==b):
         return "The numbers are equal"
     else:
         return "The numbers are NOT equal"
 
+
+
+@app.route("/bitAND", methods=["POST"])
+def bitAND(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    num=a&b
+    response = "And operator of 2 numbers is " + str(num)
+    return response
+
+@app.route("/LOGICAL_AND", methods=["POST"])
+def LOGICAL_AND(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    LOGIC_AND = a and b
+    response = "logical and of a and b is = " + str(LOGIC_AND)
+    return response
 
 if __name__== "__main__":
     app.run()
