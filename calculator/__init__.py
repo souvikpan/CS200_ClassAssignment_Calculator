@@ -44,11 +44,28 @@ def isequal():
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
+    
     if (a==b):
         return "The numbers are equal"
     else:
         return "The numbers are NOT equal"
 
+
+    
+@app.route("/nth_root", methods=["POST"])
+def nth_root (): 
+    jsonStr  = request.get_json()
+    jsonObj  = json.loads(jsonStr)
+    a1= int(jsonObj['N1'])
+    b1= int(jsonObj['N2'])
+    outpt=((a1)**(1/b1))
+    response  = str(outpt)
+    return  response
+    # Logic for function assigned to you as in pdf
+    
+    
+    # Logic for function assigned to you as in pdf
+    
 
 
 @app.route("/bitAND", methods=["POST"])
