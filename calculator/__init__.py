@@ -41,6 +41,17 @@ def findmin():
     response = "Minimum of 2 numbers = " + str(minimum)
     return response
 
+@app.route("/findmax", methods=["POST"])
+def findmin():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    maximum = max(a,b)
+    response = "Maximum of 2 numbers = " + str(maximum)
+    return response
+
+
 @app.route("/Subtract", methods=["POST"])
 def Subtract():
     jsonStr = request.get_json()
