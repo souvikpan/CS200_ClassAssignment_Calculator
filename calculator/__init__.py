@@ -30,7 +30,7 @@ def MIN():
     elif b<a :
     	response = "MIN of the two is= " + str(b)
     else :
-   	response = "both are equal and the number is:" + str(a)
+     	response = "both are equal and the number is:" + str(a)
     return response
 
 @app.route("/exponentiation", methods=["POST"])
@@ -149,18 +149,7 @@ def LOGICAL_AND():
     return response
 
 
-@app.route("/xyz", methods=["POST"])
-def XYZ(): 
 
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-    
-    a=int(jsonObj['N1'])
-    b=int(jsonObj['N2'])
-    LOGIC_AND = a and b
-    response = "logical and of a and b is = " + str(LOGIC_AND)
-
-    return response
        
 @app.route("/shiftdeciright", methods=["POST"])
 def shiftdeciright(): 
