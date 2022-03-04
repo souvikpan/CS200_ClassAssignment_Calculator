@@ -84,5 +84,17 @@ def LOGICAL_AND():
 
     return response
 
+@app.route("/lor", methods=["POST"])
+def lor(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+
+    a=jsonObj['N1']
+    b=jsonObj['N2']
+    num=a or b
+    response = "Logical or of 2 numbers is " + str(num)
+    return response
+
+
 if __name__== "__main__":
     app.run()
