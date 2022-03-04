@@ -15,20 +15,22 @@ def ADD():
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
     sum=a+b
-    response = "sum of 2 numbers = " + str(sum)
+    response =   str(sum)
     return response
     
-@app.route("/xyz", methods=["POST"])
-def XYZ(): 
+@app.route("/nth_root", methods=["POST"])
+def nth_root (): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
-    
+    outpt=((a)**(1/b))
+    response = str(outpt)
+    return response
     # Logic for function assigned to you as in pdf
     
-    return 1
+    
 
 @app.route("/subtract", methods=["POST"])
 def subtract():
