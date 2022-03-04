@@ -18,13 +18,17 @@ def ADD():
     response = "sum of 2 numbers = " + str(sum)
     return response
     
-@app.route("/xyz", methods=["POST"])
-def XYZ(): 
+@app.route("/MOD", methods=["POST"])
+def MOD(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
+    MOD=a%b
+    response = "modulus of 2 numbers = " + str(MOD)
+    return response
+
     
     # Logic for function assigned to you as in pdf
     
