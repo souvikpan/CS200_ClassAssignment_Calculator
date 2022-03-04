@@ -18,8 +18,9 @@ def ADD():
     response = "sum of 2 numbers = " + str(sum)
     return response
     
-@app.route("/xyz", methods=["POST"])
-def XYZ(): 
+
+@app.route("/bitwiseXor", methods=["POST"])
+def bitwiseXor(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     
@@ -27,8 +28,10 @@ def XYZ():
     b=int(jsonObj['N2'])
     
     # Logic for function assigned to you as in pdf
-    
-    return 1
+    xor=a^b
+    response = "Bitwise Xor of 2 numbers = " + str(xor)
+    return response
+
 
 
 
