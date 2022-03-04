@@ -17,6 +17,22 @@ def ADD():
     sum=a+b
     response = "sum of 2 numbers = " + str(sum)
     return response    
+
+@app.route("/MIN", methods=["POST"])
+def MIN(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    if a<b :
+    	response = "MIN of the two is= " + str(a)
+    elif b<a :
+    	response = "MIN of the two is= " + str(b)
+    else :
+   	response = "both are equal and the number is:" + str(a)
+    return response
+
 @app.route("/exponentiation", methods=["POST"])
 def exp(): 
     jsonStr = request.get_json()
