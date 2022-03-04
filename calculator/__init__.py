@@ -172,7 +172,10 @@ def shiftdeciright():
     shift2 =b*10
     response ="Shfifting decimal right " + str(shift) +" and "+ str(shift2)
     return response
-    
+
+@app.route("/MOD", methods=["POST"])
+def MOD(): 
+
 
 @app.route("/lor", methods=["POST"])
 def lor(): 
@@ -199,11 +202,74 @@ def RIGHTSHIFT():
 
 @app.route("/xyz", methods=["POST"])
 def XYZ(): 
+
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
+    MOD=a%b
+    response = "modulus of 2 numbers = " + str(MOD)
+    return response
+
+
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+
+    log=math.log(a,b)
+    response="Log of Number-1 is calculated with  Number-2 as the base "+str(log)
+    return response
+@app.route("/multiply", methods=["POST"])
+def multiply(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
     
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    mul=a*b
+    response = f"multiplication of {a} and {b} = {mul}"
+    return response
+
+@app.route("/LOGICAL_AND", methods=["POST"])
+def LOGICAL_AND(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    LOGIC_AND = a and b
+    response = "logical and of a and b is = " + str(LOGIC_AND)
+
+    return response
+       
+@app.route("/shiftdeciright", methods=["POST"])
+def shiftdeciright(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=float(jsonObj['N1'])
+    b=float(jsonObj['N2'])
+    shift =a*10
+    shift2 =b*10
+    response ="Shfifting decimal right " + str(shift) +" and "+ str(shift2)
+    return response
+    
+
+@app.route("/lor", methods=["POST"])
+def lor(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+
+    a=jsonObj['N1']
+    b=jsonObj['N2']
+    num=a or b
+    response = "Logical or of 2 numbers is " + str(num)
+    return response
+    
+@app.route("/rightshift", methods=["POST"])
+def RIGHTSHIFT(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+
     # Logic for function assigned to you as in pdf
     ans = a/(10**b)
     response = "left decimal shift: " + str(ans)
@@ -213,6 +279,7 @@ def XYZ():
 def ANTILOG(): 
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
+
     
     a=int(jsonObj['N1'])
     b=int(jsonObj['N2'])
