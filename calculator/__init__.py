@@ -30,8 +30,16 @@ def expo():
     
     return str(a) + " raised to the power " + str(b)+ "is equal to "+ str(a**b)
 
+@app.route("/bitAND", methods=["POST"])
+def bitAND(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
 
-
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    num=a&b
+    response = "And operator of 2 numbers is " + str(num)
+    return response
 
 if __name__== "__main__":
     app.run()
