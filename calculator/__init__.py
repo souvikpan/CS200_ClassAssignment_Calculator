@@ -19,19 +19,22 @@ def ADD():
     response = "sum of 2 numbers = " + str(sum)
     return response
     
-
+@app.route("/expo", methods=["POST"])
+def expo(): 
+	jsonStr = request.get_json()
+	jsonObj = json.loads(jsonStr)
+	a=int(jsonObj['N1'])
+	b=int(jsonObj['N2'])
+	return str(a) + " raised to the power " + str(b)+ "is equal to "+ str(a**    b)  
 @app.route("/bitwiseXor", methods=["POST"])
-def bitwiseXor(): 
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-    
-    a=int(jsonObj['N1'])
-    b=int(jsonObj['N2'])
-    
-    # Logic for function assigned to you as in pdf
-    xor=a^b
-    response = "Bitwise Xor of 2 numbers = " + str(xor)
-    return response
+def bitwiseXor():     
+	jsonStr = request.get_json()
+	jsonObj = json.loads(jsonStr)
+	a=int(jsonObj['N1'])
+	b=int(jsonObj['N2'])
+	xr=a^b
+	response = "Bitwise Xor of 2 numbers = " + str(xr)
+	return response
 
 
 @app.route("/bitAND", methods=["POST"])
@@ -55,6 +58,17 @@ def logarithm():
     log=math.log(a,b)
     response="Log of Number-1 is calculated with  Number-2 as the base "+str(log)
     return response
+
+@app.route("/LOGICAL_AND", methods=["POST"])
+def LOGICAL_AND(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    LOGIC_AND = a and b
+    response = "logical and of a and b is = " + str(LOGIC_AND)
+
 
 if __name__== "__main__":
     app.run()
