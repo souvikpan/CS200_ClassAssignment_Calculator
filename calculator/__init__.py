@@ -28,6 +28,20 @@ def XYZ():
     
     # Logic for function assigned to you as in pdf
     
+@app.route("/MIN", methods=["POST"])
+def MIN(): 
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    if (a < b) :
+    	response = "MIN of the two is= " + str(a)
+    elif (b < a) :
+    	response = "MIN of the two is= " + str(b)
+    else :
+   	response = "both are equal and the number is:" + str(a)
+    return response
     return 1
 
 
