@@ -334,6 +334,16 @@ def DIVISION():
     div=a/b
     response = "division of 2 numbers = " + str(div)
     return response
+#code added by ScriptEd
+@app.route("/bitOR",methods=["POST"])
+def bitOR():
+    jsonStr=request.get_json()
+    jsonObj=json.loads(jsonStr)
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    num=a^b
+    response="The Bitwise OR of the two numbers is "+str(num)
+    return response
     
 if __name__== "__main__":
     app.run()
