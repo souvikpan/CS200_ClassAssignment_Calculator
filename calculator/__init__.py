@@ -31,7 +31,16 @@ def bitwiseXor():
     xor=a^b
     response = "Bitwise Xor of 2 numbers = " + str(xor)
     return response
+@app.route("/Bitwise_NOR", methods=["POST"])
+def Bitwise_NOR():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
 
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
+    Bitwise_NOR=~(a|b)
+    response = "The Bitwise NOR of these two numbers is :  " + str(Bitwise_NOR)
+    return response
 
 @app.route("/bitAND", methods=["POST"])
 def bitAND(): 
