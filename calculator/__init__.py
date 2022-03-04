@@ -30,7 +30,18 @@ def XYZ():
     
     return 1
 
+@app.route("/isequal", methods=["POST"])
+def isequal():
+    jsonStr = request.get_json()
+    jsonObj = json.loads(jsonStr)
+    
+    a=int(jsonObj['N1'])
+    b=int(jsonObj['N2'])
 
+    if (a==b):
+        return "The numbers are equal"
+    else:
+        return "The numbers are NOT equal"
 
 
 if __name__== "__main__":
