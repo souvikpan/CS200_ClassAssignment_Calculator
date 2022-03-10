@@ -49,24 +49,6 @@ def exp():
     response = str(x) + " power " + str(y) + " is " + str(value)
     return response
 
-
-@app.route("/mult", methods=["POST"])
-def MULT():
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-
-    # Logic for function assigned to you as in pdf
-
-
-@app.route("/expo", methods=["POST"])
-def expo():
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-    a = int(jsonObj['N1'])
-    b = int(jsonObj['N2'])
-    return str(a) + " raised to the power " + str(b) + "is equal to " + str(a**b)
-
-
 @app.route("/bitwiseXor", methods=["POST"])
 def bitwiseXor():
     jsonStr = request.get_json()
@@ -92,7 +74,7 @@ def isequal():
         return "The numbers are NOT equal"
 
 
-@app.route("/nth_root", methods=["POST"])
+@app.route("/nthroot", methods=["POST"])
 def nth_root():
     jsonStr = request.get_json()
     jsonObj = json.loads(jsonStr)
@@ -101,9 +83,6 @@ def nth_root():
     outpt = ((a1)**(1/b1))
     response = str(outpt)
     return response
-    # Logic for function assigned to you as in pdf
-
-    # Logic for function assigned to you as in pdf
 
 
 @app.route("/bitAND", methods=["POST"])
@@ -114,19 +93,6 @@ def bitAND():
     b = int(jsonObj['N2'])
     num = a & b
     response = "And operator of 2 numbers is " + str(num)
-
-
-@app.route("/LOGICAL_AND", methods=["POST"])
-def LOGICAL_AND():
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-
-    a = int(jsonObj['N1'])
-    b = int(jsonObj['N2'])
-    LOGIC_AND = a and b
-    response = "logical and of a and b is = " + str(LOGIC_AND)
-    return response
-
 
 @app.route("/xyz", methods=["POST"])
 def XYZ():
@@ -149,8 +115,7 @@ def logarithm():
     b = int(jsonObj['N2'])
 
     log = math.log(a, b)
-    response = "Log of Number-1 is calculated with  Number-2 as the base " + \
-        str(log)
+    response = "Log of Number-1 is calculated with  Number-2 as the base " + str(log)
     return response
 
 
@@ -167,16 +132,6 @@ def multiply():
     return response
 
 
-@app.route("/LOGICAL_AND", methods=["POST"])
-def LOGICAL_AND():
-
-    a = int(jsonObj['N1'])
-    b = int(jsonObj['N2'])
-    mul = a*b
-    response = "Multiplication of 2 numbers = " + str(mul)
-    return response
-
-
 @app.route("/shiftdeciright", methods=["POST"])
 def shiftdeciright():
     jsonStr = request.get_json()
@@ -187,22 +142,6 @@ def shiftdeciright():
     shift = a*10
     shift2 = b*10
     response = "Shfifting decimal right " + str(shift) + " and " + str(shift2)
-    return response
-
-
-@app.route("/MOD", methods=["POST"])
-def MOD():
-
-
-@app.route("/lor", methods=["POST"])
-def lor():
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-
-    a = jsonObj['N1']
-    b = jsonObj['N2']
-    num = a or b
-    response = "Logical or of 2 numbers is " + str(num)
     return response
 
 
@@ -231,9 +170,6 @@ def XYZ():
     response = "modulus of 2 numbers = " + str(MOD)
     return response
 
-    a = int(jsonObj['N1'])
-    b = int(jsonObj['N2'])
-
 
 @app.route("/logarithm", methods=["POST"])
 def logarithm():
@@ -250,18 +186,6 @@ def logarithm():
     return response
 
 
-@app.route("/multiply", methods=["POST"])
-def multiply():
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-
-    a = int(jsonObj['N1'])
-    b = int(jsonObj['N2'])
-    mul = a*b
-    response = f"multiplication of {a} and {b} = {mul}"
-    return response
-
-
 @app.route("/LOGICAL_AND", methods=["POST"])
 def LOGICAL_AND():
     jsonStr = request.get_json()
@@ -272,19 +196,6 @@ def LOGICAL_AND():
     LOGIC_AND = a and b
     response = "logical and of a and b is = " + str(LOGIC_AND)
 
-    return response
-
-
-@app.route("/shiftdeciright", methods=["POST"])
-def shiftdeciright():
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-
-    a = float(jsonObj['N1'])
-    b = float(jsonObj['N2'])
-    shift = a*10
-    shift2 = b*10
-    response = "Shfifting decimal right " + str(shift) + " and " + str(shift2)
     return response
 
 
@@ -299,32 +210,6 @@ def lor():
     response = "Logical or of 2 numbers is " + str(num)
     return response
 
- @app.route("/rightshift", methods=["POST"])
-=======
-    
-@app.route("/rightshift", methods=["POST"])
-
-def RIGHTSHIFT(): 
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-
-@app.route("/xyz", methods=["POST"])
-def XYZ():
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-    a = int(jsonObj['N1'])
-    b = int(jsonObj['N2'])
-
-
-    # Logic for function assigned to you as in pdf
-    ans = a/(10**b)
-    response = "left decimal shift: " + str(ans)
-    return response
-
-
-@app.route("/is_diff", methods=["POST"])
-def is_diff(): 
-
 @app.route("/antilog", methods=["POST"])
 def ANTILOG(): 
     jsonStr = request.get_json()
@@ -335,18 +220,6 @@ def ANTILOG():
     b=int(jsonObj['N2'])
     antilog = b**a
     response = "antilog of logarthmic value "+str(a)+" with base "+str(b)+" is " + str(antilog)
-    return response
-
-@app.route("/LOGICAL_OR", methods=["POST"])
-def LOGICAL_OR():
-
-    jsonStr = request.get_json()
-    jsonObj = json.loads(jsonStr)
-    
-    a=int(jsonObj['N1'])
-    b=int(jsonObj['N2'])
-    LOGIC_OR = a or b
-    response = "logical or of a and b is = " + str(LOGIC_OR)
     return response
 
 
@@ -371,6 +244,7 @@ def DIVISION():
     div=a/b
     response = "division of 2 numbers = " + str(div)
     return response
+    
 # code added by ScriptEd
 @app.route("/bitOR",methods=["POST"])
 def bitOR():
@@ -381,9 +255,6 @@ def bitOR():
     num=a^b
     response="The Bitwise OR of the two numbers is "+str(num)
     return response
-    
-
-
 
 @app.route("/hcf", methods=["POST"])
 def HCF():
